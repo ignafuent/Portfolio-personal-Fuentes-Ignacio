@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignacio Fuentes | Portfolio Digital</title>
+
+<style>
+:root {
+    --navy: #071a33;
+    --blue: #0b3d91;
+    --blue-2: #1456b8;
+    --sky: #2f80ed;
+    --light-blue: #eaf3ff;
+    --ice: #f5f9ff;
+    --white: #ffffff;
+    --text: #18263a;
+    --muted: #607089;
+    --border: #d7e5f7;
+    --shadow: 0 14px 35px rgba(7, 26, 51, 0.10);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-padding-top: 96px;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top right, rgba(47,128,237,.12), transparent 32%),
+        linear-gradient(180deg, var(--ice) 0%, #ffffff 45%, var(--ice) 100%);
+    line-height: 1.7;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(20,86,184,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,86,184,.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+/* ===== HEADER & NAVEGACIÓN DE ESCRITORIO ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 26, 51, .95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 6px 22px rgba(0,0,0,.14);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 36px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #2f80ed, #0b3d91);
+    color: white;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: -1px;
+    box-shadow: 0 6px 18px rgba(47,128,237,.35);
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-text strong {
+    font-size: 1rem;
+    letter-spacing: -.3px;
+}
+
+.brand-text span {
+    font-size: .76rem;
+    color: #9ec5ff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav ul a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .95rem;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: .25s ease;
+}
+
+nav ul a:hover {
+    background: rgba(47,128,237,.28);
+    color: #dcecff;
+    transform: translateY(-1px);
+}
+
+nav ul li:last-child a {
+    background: linear-gradient(135deg, #2f80ed, #1456b8);
+    box-shadow: 0 4px 14px rgba(47,128,237,.35);
+}
+
+nav ul li:last-child a:hover {
+    background: linear-gradient(135deg, #4791f0, #1964d4);
+    color: #fff;
+}
+
+/* ===== CONTENEDORES DE SECCIÓN (ESCRITORIO PANORÁMICO) ===== */
+section {
+    width: min(1280px, calc(100% - 64px));
+    margin: 0 auto 36px;
+    padding: 64px 64px;
+    background: rgba(255,255,255,.94);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ===== 1. INICIO (HERO 2 COLUMNAS PARA PC) ===== */
+#inicio {
+    margin-top: 32px;
+    padding: 72px 64px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.85fr);
+    gap: 48px;
+    align-items: center;
+    background:
+        linear-gradient(135deg, rgba(7,26,51,.98), rgba(11,61,145,.95) 58%, rgba(47,128,237,.88)),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,.18), transparent 30%);
+    color: #fff;
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+#inicio::after {
+    content: "";
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 50%;
+    right: -90px;
+    top: -90px;
+    box-shadow: 0 0 0 40px rgba(255,255,255,.04), 0 0 0 80px rgba(255,255,255,.025);
+    pointer-events: none;
+}
+
+.hero-main {
+    position: relative;
+    z-index: 1;
+}
+
+#inicio .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 7px 14px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 999px;
+    color: #dcecff;
+    background: rgba(255,255,255,.08);
+    font-size: .84rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+#inicio h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.6rem, 4.5vw, 4.4rem);
+    line-height: 1.06;
+    letter-spacing: -1.5px;
+}
+
+#inicio h1::after {
+    content: "";
+    display: block;
+    width: 95px;
+    height: 6px;
+    margin-top: 18px;
+    border-radius: 20px;
+    background: #61b4ff;
+}
+
+#inicio p {
+    margin: 14px 0;
+    position: relative;
+    z-index: 1;
+    font-size: 1.05rem;
+}
+
+#inicio p strong {
+    display: inline-block;
+    color: #cfe3ff;
+    font-size: 1.18rem;
+}
+
+#inicio p em {
+    color: #eaf3ff;
+    font-style: normal;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: .95rem;
+    text-decoration: none;
+    transition: .25s ease;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: var(--navy);
+    box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+.btn-primary:hover {
+    background: #eaf3ff;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,.12);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,.28);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,.2);
+    transform: translateY(-2px);
+}
+
+.hero-panel {
+    position: relative;
+    z-index: 1;
+    background: rgba(7, 26, 51, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.hero-panel-title {
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #8cc2ff;
+    font-weight: 800;
+    margin: 0 0 16px;
+}
+
+.hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.metric-box {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.metric-box strong {
+    display: block;
+    font-size: 1.35rem;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.metric-box span {
+    font-size: .82rem;
+    color: #cfe3ff;
+}
+
+.hero-Quote {
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    font-size: .92rem !important;
+    color: #dcecff;
+}
+
+/* ===== TIPOGRAFÍA GENERAL ===== */
+h2 {
+    color: var(--navy);
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    margin: 0 0 24px;
+    letter-spacing: -.7px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 4px;
+    margin-top: 9px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+}
+
+h3 {
+    color: var(--blue);
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+.section-intro {
+    color: var(--muted);
+    max-width: 780px;
+    margin-top: -10px;
+    margin-bottom: 32px;
+    font-size: 1.04rem;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* ===== 2. SOBRE MÍ (LAYOUT ESCRITORIO 2 COLUMNAS + GRILLA DE 3 COLUMNAS) ===== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+.about-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--ice);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 20px;
+}
+
+.about-photo img {
+    display: block;
+    width: 210px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    outline: 3px solid #b9d6fa;
+    box-shadow: 0 12px 28px rgba(11,61,145,.18);
+    margin-bottom: 16px;
+}
+
+.about-photo strong {
+    color: var(--navy);
+    font-size: 1.1rem;
+}
+
+.about-photo span {
+    color: var(--muted);
+    font-size: .86rem;
+}
+
+.about-content > p {
+    margin-top: 0;
+    margin-bottom: 26px;
+    font-size: 1.04rem;
+}
+
+#sobre-mi .about-content ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#sobre-mi .about-content ul li {
+    margin: 0;
+    padding: 16px 18px;
+    background: var(--ice);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sky);
+    border-radius: 12px;
+    font-size: .94rem;
+    line-height: 1.5;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#sobre-mi .about-content ul li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(7,26,51,.07);
+}
+
+/* ===== 3. PROYECTOS DESTACADOS (GRILLA SIMÉTRICA 2x2 EN PC) ===== */
+#proyectos {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#proyectos h2 {
+    padding-left: 4px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.project-grid article {
+    margin: 0;
+    padding: 32px;
+    height: 100%;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.project-grid article:hover {
+    transform: translateY(-5px);
+    border-color: #a9cdf5;
+    box-shadow: 0 18px 42px rgba(7,26,51,.14);
+}
+
+.project-grid article:nth-child(1) {
+    background: linear-gradient(135deg, #ffffff, #eef6ff);
+}
+
+.project-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: var(--light-blue);
+    color: var(--blue);
+    font-weight: 900;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+.project-grid article:nth-child(1) .project-number {
+    background: var(--blue);
+    color: white;
+}
+
+article h3 {
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+}
+
+article ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+article strong {
+    color: var(--blue);
+}
+
+article a,
+#contacto a {
+    color: var(--blue-2);
+    font-weight: 700;
+}
+
+article a:hover,
+#contacto a:hover {
+    color: var(--sky);
+}
+
+/* Proyecto 4: texto a la izquierda e imagen del certificado a la derecha en escritorio */
+.project-grid article:nth-child(4) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    column-gap: 24px;
+    align-items: start;
+}
+
+.project-grid article:nth-child(4) > .project-number,
+.project-grid article:nth-child(4) > h3,
+.project-grid article:nth-child(4) > ul {
+    grid-column: 1;
+}
+
+.project-grid article:nth-child(4) > img {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    margin: 0;
+    width: 100%;
+    max-width: 210px;
+    height: auto;
+    align-self: center;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 22px rgba(7,26,51,.1);
+}
+
+/* ===== 4. HABILIDADES (2 COLUMNAS BALANCEADAS EN PC) ===== */
+#habilidades-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.skills-bars {
+    display: grid;
+    gap: 12px;
+}
+
+.skill-card {
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.skill-card strong {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 9px;
+    color: var(--navy);
+}
+
+.skill-bar {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #e6eef8;
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    width: 85%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--blue), var(--sky));
+}
+
+.skills-bars .skill-card:nth-child(2) .skill-bar span { width: 88%; }
+.skills-bars .skill-card:nth-child(3) .skill-bar span { width: 90%; }
+.skills-bars .skill-card:nth-child(4) .skill-bar span { width: 72%; }
+.skills-bars .skill-card:nth-child(5) .skill-bar span { width: 78%; }
+
+.skill-summary-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    background: linear-gradient(145deg, #ffffff, #f3f8ff);
+}
+
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #e9f3ff;
+    color: #1456b8;
+    font-size: .82rem;
+    font-weight: 800;
+    border: 1px solid #cfe3ff;
+}
+
+/* ===== 5. CONTACTO (3 COLUMNAS HORIZONTALES EN PC) ===== */
+#contacto {
+    background: linear-gradient(135deg, #dff4ff, #eef9ff 55%, #ffffff);
+    border-color: #8fd3ee;
+    box-shadow: 0 16px 38px rgba(7,104,150,.16);
+}
+
+#contacto h2::after {
+    background: linear-gradient(90deg, #087ea4, #28b8e6);
+}
+
+#contacto ul {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#contacto li {
+    margin: 0;
+    background: #fff;
+    border: 1px solid #b7e3f3;
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#contacto li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(7,104,150,.12);
+}
+
+#contacto a {
+    text-decoration: none;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+footer {
+    margin-top: 48px;
+    padding: 32px 20px;
+    text-align: center;
+    background: var(--navy);
+    color: #cfe3ff;
+    font-size: .95rem;
+}
+
+/* ===== ADAPTACIÓN RESPONSIVE (TABLET Y CELULAR) ===== */
+@media (max-width: 1024px) {
+    section {
+        width: min(1280px, calc(100% - 40px));
+        padding: 48px 36px;
+    }
+
+    #inicio {
+        padding: 52px 36px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    #sobre-mi .about-content ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-grid article:nth-child(4) {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid article:nth-child(4) > img {
+        grid-column: 1;
+        grid-row: auto;
+        margin: 18px auto 0;
+    }
+}
+
+@media (max-width: 680px) {
+    nav {
+        height: auto;
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    nav ul a {
+        padding: 8px 11px;
+        font-size: .85rem;
+    }
+
+    section {
+        width: calc(100% - 24px);
+        padding: 36px 22px;
+    }
+
+    .about-grid,
+    #sobre-mi .about-content ul,
+    .project-grid,
+    #habilidades-wrapper,
+    #contacto ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN FIJO -->
+    <header>
+        <nav>
+            <a href="#inicio" class="brand">
+                <span class="brand-mark">IF</span>
+                <span class="brand-text">
+                    <strong>Ignacio Fuentes</strong>
+                    <span>Portfolio Profesional</span>
+                </span>
+            </a>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#Habilidades">Habilidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 1. PÁGINA DE INICIO (HOME) -->
+    <section id="inicio">
+        <div class="hero-main">
+            <div class="eyebrow">Portfolio profesional · Economía · Administración · Datos</div>
+            <h1>Ignacio Fuentes</h1>
+            <p><strong>Bachiller en Economía y Administración / Especialista en Atención al Cliente</strong></p>
+            <p><em>Conecto el análisis riguroso de datos con la atención al cliente de excelencia, entregando soluciones eficientes, comunicación empática y compromiso constante en cada proyecto.</em></p>
+            <div class="hero-actions">
+                <a href="#proyectos" class="btn-primary">Ver Proyectos Destacados</a>
+                <a href="#contacto" class="btn-secondary">Contactar Ahora</a>
+            </div>
+        </div>
+
+        <aside class="hero-panel">
+            <p class="hero-panel-title">Resumen de Perfil</p>
+            <div class="hero-metrics">
+                <div class="metric-box">
+                    <strong>Data &amp; Python</strong>
+                    <span>Certificación oficial en Data Analytics</span>
+                </div>
+                <div class="metric-box">
+                    <strong>Gestión &amp; Admin</strong>
+                    <span>Economía, Excel y documentación</span>
+                </div>
+                <div class="metric-box">
+                    <strong>Clientes</strong>
+                    <span>Escucha activa y resolución</span>
+                </div>
+                <div class="metric-box">
+                    <strong>Empleabilidad</strong>
+                    <span>Formación Junior Achievement</span>
+                </div>
+            </div>
+            <p class="hero-Quote"><em>"Si vas a hacer algo, hazlo lo mejor que puedas." Creo firmemente en la atención al detalle, la mejora continua y el valor irremplazable del trabajo colaborativo para alcanzar metas complejas.</em></p>
+        </aside>
+    </section>
+
+    <!-- 2. PÁGINA "SOBRE MÍ" (ABOUT) -->
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p class="section-intro">Una presentación profesional enfocada en análisis, organización, atención al cliente y aprendizaje continuo.</p>
+        <div class="about-grid">
+            <div class="about-photo">
+                <img
+                    src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230b3d91'/%3E%3Cstop offset='100%25' stop-color='%232f80ed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='240' height='240' fill='url(%23g)'/%3E%3Ccircle cx='120' cy='92' r='42' fill='%23dcecff'/%3E%3Cpath d='M48 214c10-42 42-66 72-66s62 24 72 66' fill='%23dcecff'/%3E%3C/svg%3E"
+                    data-local-src="porfolio.jpg"
+                    alt="Foto de Ignacio Fuentes">
+                <strong>Ignacio Fuentes</strong>
+                <span>Instituto Cristo Obrero</span>
+            </div>
+            <div class="about-content">
+                <p>Soy estudiante de Bachillerato en Economía y Administración del Instituto Cristo Obrero. Combino una sólida base técnica en gestión administrativa y análisis de datos con una marcada vocación por el servicio y la atención al cliente. Mi paso por diversos programas de formación institucional me ha permitido desarrollar una gran capacidad de comunicación, resolución activa de problemas y adaptación proactiva ante entornos dinámicos.</p>
+
+                <h3>Herramientas que domino</h3>
+                <ul>
+                    <li><strong>Atención y Gestión de Clientes:</strong> Comunicación asertiva, escucha activa, gestión de consultas y resolución de conflictos</li>
+                    <li><strong>Trabajo en Equipo:</strong> Colaboración efectiva y comunicación abierta</li>
+                    <li><strong>Inglés:</strong> Nivel Intermedio</li>
+                    <li><strong>Análisis de Datos y Programación:</strong> Python</li>
+                    <li><strong>Planillas de Cálculo:</strong> Microsoft Excel</li>
+                    <li><strong>Documentación y Gestión:</strong> Microsoft Word</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PROYECTOS / CASOS DE ESTUDIO (EL NÚCLEO) -->
+    <section id="proyectos">
+        <h2>Proyectos Destacados</h2>
+        <p class="section-intro">Experiencias de formación y proyectos que muestran mi capacidad de análisis, organización y trabajo colaborativo.</p>
+        <div class="project-grid">
+        
+            <article class="project-card">
+                <div class="project-number">01</div>
+                <h3>Análisis y Procesamiento de Datos con Python (Data Analytics)</h3>
+                <ul>
+                    <li><strong>El desafío:</strong> La necesidad de procesar volúmenes de información compleja de forma automatizada para extraer conclusiones útiles y optimizar tiempos de análisis.</li>
+                    <li><strong>Tu rol:</strong> Estudiante</li>
+                    <li><strong>El proceso:</strong> Diseñé y ejecuté scripts en Python para la ingesta, limpieza y manipulación de conjuntos de datos, aplicando lógica de programación estructurada para el análisis de información.</li>
+                    <li><strong>El resultado:</strong> Obtención de la certificación oficial en Data Analytics <a href="https://openbadgefactory.com/obv3/credentials/f14f0b66870637a142d1e47a108a6896e0bc435c" target="_blank" rel="noopener noreferrer">(Ver Credencial Digital)</a> y consolidación de competencias técnicas en análisis cuantitativo.</li>
+                </ul>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-number">02</div>
+                <h3>Simulación Organizacional y Trabajo en Equipo (Teatro Colón)</h3>
+                <ul>
+                    <li><strong>El desafío:</strong> Comprender la estructura funcional y la logística operativa detrás de producciones de gran escala, donde la falta de coordinación interdepartamental genera fallas de ejecución.</li>
+                    <li><strong>Tu rol:</strong> Observador del flujo de trabajo colaborativo.</li>
+                    <li><strong>El proceso:</strong> Analicé la articulación entre los distintos roles operativos y administrativos necesarios para llevar a cabo la producción integral del teatro.</li>
+                    <li><strong>El resultado:</strong> Comprensión práctica de la coordinación entre áreas y del impacto del trabajo sincronizado en organizaciones de alta exigencia.</li>
+                </ul>
+            </article>
+            
+            <article class="project-card">
+                <div class="project-number">03</div>
+                <h3>Inmersión Normativa, Fiscal y Económica (Banco Ciudad, ARCA y Consejo de Profesionales)</h3>
+                <ul>
+                    <li><strong>El desafío:</strong> Entender el marco regulatorio, tributario y macroeconómico en el que operan las organizaciones en Argentina.</li>
+                    <li><strong>Tu rol:</strong> Investigador y participante en capacitaciones con profesionales del sector.</li>
+                    <li><strong>El proceso:</strong> Estudié la historia económica nacional (Banco Ciudad), la estructura del sistema impositivo (ARCA) y el marco legal y profesional que rige a las Ciencias Económicas (Consejo de Profesionales de Ciencias Económicas).</li>
+                    <li><strong>El resultado:</strong> Visión integral del entorno socioeconómico y legal, facilitando la toma de decisiones informadas en entornos administrativos y corporativos.</li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <div class="project-number">04</div>
+                <h3>Formación Financiera y Empleabilidad (Junior Achievement)</h3>
+                <ul>
+                    <li><strong>El desafío:</strong> Desarrollar criterios sólidos de educación financiera personal e institucional y adquirir competencias clave para la inserción laboral y el uso de tecnologías aplicadas.</li>
+                    <li><strong>Tu rol:</strong> Participante activo en talleres de simulación económica y entrenamiento de competencias digitales/tecnológicas.</li>
+                    <li><strong>El proceso:</strong> Analicé variables de presupuesto, inversión y ahorro, complementado con el entrenamiento en habilidades blandas (soft skills) e interactividad con diversas herramientas tecnológicas.</li>
+                    <li><strong>El resultado:</strong> Adquisición de competencias orientadas a la planificación financiera estratégica, destreza tecnológica y alta empleabilidad.</li>
+                </ul>
+                <img
+                    src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 220'%3E%3Crect width='320' height='220' rx='14' fill='%23f5f9ff' stroke='%230b3d91' stroke-width='4'/%3E%3Crect x='20' y='20' width='280' height='180' rx='8' fill='%23ffffff' stroke='%23cfe3ff' stroke-width='2'/%3E%3Ctext x='160' y='62' font-family='Arial, sans-serif' font-size='13' font-weight='bold' fill='%230b3d91' text-anchor='middle'%3EJUNIOR ACHIEVEMENT%3C/text%3E%3Ctext x='160' y='92' font-family='Arial, sans-serif' font-size='16' font-weight='bold' fill='%23071a33' text-anchor='middle'%3ECertificado de Participaci%C3%B3n%3C/text%3E%3Ctext x='160' y='122' font-family='Arial, sans-serif' font-size='13' fill='%231456b8' text-anchor='middle'%3EIgnacio Fuentes%3C/text%3E%3Ctext x='160' y='148' font-family='Arial, sans-serif' font-size='11' fill='%23607089' text-anchor='middle'%3EFormaci%C3%B3n Financiera y Empleabilidad%3C/text%3E%3Ccircle cx='160' cy='176' r='12' fill='%232f80ed'/%3E%3C/svg%3E"
+                    data-local-src="sin dni.jpg"
+                    alt="Certificado de Participación en el Programa de Formación Financiera y Empleabilidad de Junior Achievement">
+            </article>
+        
+        </div>
+    </section>
+
+    <!-- 4. HABILIDADES -->
+    <section id="Habilidades">
+        <h2>Habilidades</h2>
+        <p class="section-intro">Competencias técnicas e interpersonales aplicadas a la gestión administrativa, análisis de datos y atención al cliente.</p>
+        <div id="habilidades-wrapper">
+            <div class="skills-bars">
+                <div class="skill-card"><strong><span>Atención al Cliente y Soporte Integral</span><span>85%</span></strong><div class="skill-bar"><span></span></div></div>
+                <div class="skill-card"><strong><span>Coordinación y Trabajo en Equipo</span><span>88%</span></strong><div class="skill-bar"><span></span></div></div>
+                <div class="skill-card"><strong><span>Organización y Responsabilidad</span><span>90%</span></strong><div class="skill-bar"><span></span></div></div>
+                <div class="skill-card"><strong><span>Análisis y Procesamiento de Datos</span><span>72%</span></strong><div class="skill-bar"><span></span></div></div>
+                <div class="skill-card"><strong><span>Asistencia Administrativa y Financiera</span><span>78%</span></strong><div class="skill-bar"><span></span></div></div>
+            </div>
+            <div class="skill-card skill-summary-card">
+                <div>
+                    <h3>Perfil de habilidades</h3>
+                    <p>Gestión de consultas y reclamos, integración en equipos multidisciplinarios, cumplimiento de plazos, limpieza de bases de datos, reportes en Excel, scripts básicos en Python, elaboración de presupuestos y documentación profesional.</p>
+                    <p>Capacidad demostrada para traducir datos administrativos y financieros en respuestas claras, ordenadas y orientadas a la toma de decisiones.</p>
+                </div>
+                <div class="badge-list">
+                    <span class="badge">Excel</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">Microsoft Word</span>
+                    <span class="badge">Atención al cliente</span>
+                    <span class="badge">Análisis de datos</span>
+                    <span class="badge">Gestión administrativa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CONTACTO (CALL TO ACTION) -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p class="section-intro">Contactame directamente por cualquiera de estos canales:</p>
+        <ul>
+            <li><a href="mailto:ignaciofuentesarista@gmail.com">Email: ignaciofuentesarista@gmail.com</a></li>
+            <li><a href="tel:+541133584565">Teléfono: 11 3358 4565</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn Profesional</a></li>
+        </ul>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 <strong>Ignacio Fuentes Arista</strong> - Portfolio Personal.</p>
+    </footer>
+
+    <script>
+        // Si el archivo se abre en la PC en la misma carpeta que las fotos locales, las carga automáticamente
+        document.querySelectorAll('img[data-local-src]').forEach(function (img) {
+            var localSrc = img.getAttribute('data-local-src');
+            if (!localSrc) return;
+            var probe = new Image();
+            probe.onload = function () {
+                img.src = localSrc;
+            };
+            probe.src = localSrc;
+        });
+    </script>
+</body>
+</html>
